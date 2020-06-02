@@ -22,4 +22,4 @@ def download(url: String): Task[String] =
   }
 
 def safeDownload(url: String): ZIO[Blocking, Throwable, String] =
-  blocking(download(url)).retry(Schedule.)
+  blocking(download(url))
