@@ -1,6 +1,6 @@
 import java.net.{ServerSocket, Socket}
 
-import zio.{Task, UIO, ZIO}
+import zio.{Schedule, Task, UIO, ZIO}
 import zio.blocking._
 
 import scala.io.{Codec, Source}
@@ -22,4 +22,4 @@ def download(url: String): Task[String] =
   }
 
 def safeDownload(url: String): ZIO[Blocking, Throwable, String] =
-  blocking(download(url))
+  blocking(download(url)).retry(Schedule.)
