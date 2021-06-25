@@ -3,3 +3,7 @@
 .code
 target
 .bloop
+project/project
+metals.sbt
+.bsp
+.vscode
